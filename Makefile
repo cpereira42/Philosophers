@@ -6,7 +6,7 @@
 #    By: cpereira <cpereira@student.42sp.org>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/27 00:08:05 by cpereira          #+#    #+#              #
-#    Updated: 2021/07/27 19:37:03 by cpereira         ###   ########.fr        #
+#    Updated: 2021/08/11 17:35:16 by cpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SDIR =	./srcs/
 ODIR =	./objs/
 
 SRCS =	$(SDIR)main.c \
-		$(SDIR)libs.c
+		$(SDIR)timming.c \
+		$(SDIR)actions.c \
+		$(SDIR)utils.c
 
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))
 
@@ -26,7 +28,7 @@ CC = clang
 HEADERS = -I./$(HEADER_DIR)
 C_FLAGS = -Wall -Werror -Wextra -g
 C_SANIT = -fsanitize=address
-L_FLAGS =  -L -lncurses
+L_FLAGS =  -lpthread
 
 
 $(NAME):	$(OBJS)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libs.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpereira <cpereira@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 19:33:50 by cpereira          #+#    #+#             */
-/*   Updated: 2021/07/27 20:03:13 by cpereira         ###   ########.fr       */
+/*   Updated: 2021/08/11 17:43:44 by cpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,16 @@ long	ft_atoi(const char *str)
 	return (total * mult);
 }
 
-int	verify_args(t_all *all)
+int	verify_args(t_all *all, int j)
 {
 	long	num;
-	int		j;
 	int		i;
 
-	j = 0;
+	if (all->argc > 6 || all->argc <= 4)
+	{
+		printf("Wrong Args\n");
+		return (1);
+	}
 	i = 1;
 	while (j < (int)ft_strlen(all->argv[i]))
 	{
