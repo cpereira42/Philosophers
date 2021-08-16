@@ -6,7 +6,7 @@
 /*   By: cpereira <cpereira@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 01:19:17 by user42            #+#    #+#             */
-/*   Updated: 2021/08/12 17:28:11 by cpereira         ###   ########.fr       */
+/*   Updated: 2021/08/15 16:54:08 by cpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 # include <sys/time.h>
 
 # define NUMX 10
-
-typedef struct	s_philo
+typedef struct s_philo
 {
 	int			num;
 	int			teste;
@@ -49,25 +48,27 @@ typedef struct s_all
 	int					time_eat;
 	int					time_sleep;
 	long long			init_time;
+	int					dead;
+	int					n_eat;
 	t_philo				*philos;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		write;
 	pthread_t			tim;
-
-
 }				t_all;
-
 
 long		ft_atoi(const char *str);
 int			verify_args(t_all *all, int j);
 void		get_info(t_all *all, int t_die, int t_eat, int t_sleep);
-int			create_philos(t_all *all, int i);
+int			create_philos(t_all *all, int i, int next);
 int			restore_times(t_all *all, int i);
 long long	get_time(void);
-int			diff_time (long long last);
-void		*timming (void* arg);
-void		*action (void* arg);
+int			diff_time(long long last);
+void		*timming(void *arg);
+void		*action(void *arg);
 void		create_thread(t_all *all);
 void		print_action(char *action, t_all *all, int i, int num);
+int			wait_action(t_all *all, long long time);
+void		do_action(t_all *all, int i);
+void		end_threads(t_all *all);
 
 #endif
