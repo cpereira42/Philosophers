@@ -17,6 +17,7 @@
 <p align="center">
   <a href="#about">About</a> &#xa0; | &#xa0;
   <a href="#features">Features</a> &#xa0; | &#xa0;
+  <a href="#subject">Subject</a> &#xa0; | &#xa0;
   <a href="#starting">Starting</a> &#xa0; | &#xa0;
   <a href="https://github.com/cpereira42" target="_blank">Author</a>
 </p>
@@ -38,6 +39,9 @@ The application works with four or five parameters:
 returns de status of each philosopher until any of then die.
 - five parameters: number of Philosophers, time to die, time to eat, time to sleep, how many time each philosopher ate<br>
 returns de status of each philosopher until any of then die or when all philosophers ate.
+
+## Subject ##
+<a href="https://cdn.intra.42.fr/pdf/pdf/27819/en.subject.pdf" target="_blank">Subject</a>
 
 ## Starting ##
 
