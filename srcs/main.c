@@ -6,7 +6,7 @@
 /*   By: cpereira <cpereira@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 00:08:11 by cpereira          #+#    #+#             */
-/*   Updated: 2021/08/23 11:14:19 by cpereira         ###   ########.fr       */
+/*   Updated: 2021/08/23 11:38:29 by cpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	end_threads(t_all *all)
 	int	i;
 
 	i = 0;
-	while (i <= all->qtt_philo)
+	while (i < all->qtt_philo)
 	{
 		pthread_mutex_destroy(&(all->forks[i]));
 		i++;

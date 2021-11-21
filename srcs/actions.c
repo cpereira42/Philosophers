@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpereira <cpereira@student.42sp.org>       +#+  +:+       +#+        */
+/*   By: cpereira <cpereira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:33:52 by cpereira          #+#    #+#             */
-/*   Updated: 2021/08/23 11:17:21 by cpereira         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:48:14 by cpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	print_action(char *action, t_all *all, int i, int num)
 	{
 		pthread_mutex_lock(&(all->write));
 		if (num >= 0)
-			printf("%d Philo %d %s %d\n", diff_time(all->init_time),
+			printf("%dms Philo %d %s %d\n", diff_time(all->init_time),
 				i, action, num);
 		else
-			printf("%d Philo %d %s\n", diff_time(all->init_time), i, action);
+			printf("%dms Philo %d %s\n", diff_time(all->init_time), i, action);
 		pthread_mutex_unlock(&(all->write));
 	}
 }
@@ -69,7 +69,7 @@ void	*action(void *arg)
 	{
 		if (all->philos[i].status == 0)
 			do_action(all, i);
-		usleep(10);
+		usleep(50);
 	}
 	return (NULL);
 }
@@ -89,12 +89,13 @@ void	do_action(t_all *all, int i)
 	all->n_eat++;
 	all->philos[i].t_die = get_time();
 	if (!wait_action(all, all->time_eat) && (all->n_eat < all->qtt_eat
-			|| all->qtt_eat == -1))
+			|| all->qtt_eat == -1) && all->dead == 0 )
 	{
 		print_action("\033[1;34m is Sleeping\033[1;37m", all, philo.num, -1);
 		pthread_mutex_unlock(&(all->forks[philo.fork_left]));
 		pthread_mutex_unlock(&(all->forks[philo.fork_right]));
-		if (!wait_action(all, all->time_sleep) && all->n_eat < all->qtt_eat)
+		if (!wait_action(all, all->time_sleep) && all->n_eat < all->qtt_eat
+			&& all->dead == 0)
 			print_action("\033[1;36m is Thinking\033[1;37m", all, philo.num, -1);
 	}
 }
