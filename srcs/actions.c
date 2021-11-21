@@ -6,7 +6,7 @@
 /*   By: cpereira <cpereira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:33:52 by cpereira          #+#    #+#             */
-/*   Updated: 2021/11/21 15:48:14 by cpereira         ###   ########.fr       */
+/*   Updated: 2021/11/21 16:00:32 by cpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	*action(void *arg)
 	{
 		if (all->philos[i].status == 0)
 			do_action(all, i);
-		usleep(50);
+		usleep(10);
 	}
 	return (NULL);
 }
